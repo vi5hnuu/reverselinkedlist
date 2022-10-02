@@ -1,3 +1,54 @@
+////////////////
+window.addEventListener('load', (evnt) => {
+    changeGridDim()
+})
+window.addEventListener('resize', (evnt) => {
+    changeGridDim()
+})
+
+//[same as mediaQuery] at 900 650 400
+function changeGridDim() {
+    const nodes = document.querySelector('.nodes')
+    const windowWidth = parseInt(window.document.body.clientWidth)
+    console.log(windowWidth);
+
+    const dimes = nodes.getBoundingClientRect()
+    const cmpStules = window.getComputedStyle(nodes);
+    const scrollBarWidth = dimes.width - nodes.clientWidth
+    // console.log(cmpStules);
+    let totalCols = 10
+    if (windowWidth <= 400) {
+        totalCols = 4
+    }
+    else if (windowWidth <= 650) {
+        totalCols = 6
+    }
+    else if (windowWidth <= 900) {
+        totalCols = 8
+    }
+
+
+    const colWidth = (dimes.width - scrollBarWidth - cmpStules.padding.split('px', 1)[0] * 2) / totalCols
+    console.log(colWidth);
+    nodes.style['grid-template-columns'] = `repeat(${totalCols},${colWidth}px)`
+    nodes.style['grid-auto-rows'] = `${colWidth}px`
+
+
+    //////onload and onchangeOfWiwndown size
+    changeNodesSize()
+
+}
+function changeNodesSize() {
+    const nodes = document.querySelector('.nodes')
+    const allFullNodes = nodes.children
+    if (allFullNodes.length > 2) {//exclude 1 and last child
+        document.querySelectorAll('.node').forEach((node) => {
+            node.style.height = `${node.getBoundingClientRect().width}px`
+        })
+    }
+}
+////////////////
+
 
 const addNodes = document.querySelector('.btn-addNodes')
 const backdrop = document.querySelector('.backdrop')
@@ -55,7 +106,7 @@ submitBtn.addEventListener('click', () => {
     toggleBackdrop()
     clearInputs()
     enableRevButton()
-
+    changeNodesSize()
     //show toolTip
     const toolTip = document.querySelector('.toolTip')
     toolTip.classList.toggle('hidden')
