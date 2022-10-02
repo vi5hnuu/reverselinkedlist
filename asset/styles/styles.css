@@ -274,7 +274,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   .header p {
     font-size: 1rem;
