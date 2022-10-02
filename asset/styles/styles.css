@@ -40,7 +40,7 @@ body {
   padding: 1rem 2.5rem;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
+  height: 12vh;
   background-color: #256d85;
 }
 .header p {
@@ -94,7 +94,7 @@ body {
 .main {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 88vh;
   align-items: center;
   justify-content: space-between;
   background-color: #dff6ff;
@@ -261,12 +261,25 @@ body {
     padding: 0.5rem 1.5rem;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 470px) {
+  .full-node:first-of-type .node,
+  .link {
+    font-size: 1rem;
+  }
+  .full-node:last-of-type .node,
+  .link {
+    font-size: 1rem;
+  }
+  .header {
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .header p {
     font-size: 1rem;
     letter-spacing: 0.1rem;
   }
   .btn {
+    font-size: 1rem;
     padding: 0.5rem 1rem;
   }
   /* modal */

@@ -18,10 +18,10 @@ function changeGridDim() {
     // console.log(cmpStules);
     let totalCols = 10
     if (windowWidth <= 400) {
-        totalCols = 4
+        totalCols = 3
     }
     else if (windowWidth <= 650) {
-        totalCols = 6
+        totalCols = 5
     }
     else if (windowWidth <= 900) {
         totalCols = 8
